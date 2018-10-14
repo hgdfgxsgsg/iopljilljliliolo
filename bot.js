@@ -26,7 +26,7 @@ client.on("message", (message) => {
     .setColor(0xCF40FA)
     .setDescription(`مرحبا! أنا تذكرة ، و دسكورد بوت لأشياء تذكرة دعم أكثر من رائع وأكثر! فيما يلي أوامري:`)
     .addField(`Tickets`, `[${prefix}بلاغ]() > لطلب المساعده في السيرفر[${prefix}اغلاق]() > لاغلاق تذكرتك الحاليه`)
-    .addField(`Other`, `[${prefix}مساعده]() > يريك هاذه الرساله[${prefix}الاتصال]() > لمعرفة سرعة استجابة البوت[${prefix}البوت]() > يريك معلومات عن البوت`)
+    .addField(`Other`, `[${prefix}مساعده]() > يريك هاذه الرساله[${prefix}الاتصال]() > لمعرفة سرعة استجابة البوت[${prefix} البوت]() > يريك معلومات عن البوت ${prefix}مساعدة]() > سيرفر المساعدة`)
     message.channel.send({ embed: embed });
   }
 
@@ -99,6 +99,28 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);//DIAMONDCODES
     }
 });
+
+
+
+client.on('message', message => {
+       if(message.content.startsWith(`${prefix}مساعدة`)){
+           if(!message.channel.guild) return message.channel.send("هاذا فقط لسيرفرات!")
+           var embed = new Discord.RichEmbed()
+           .setTitle("سيرفر المساعدة")
+           .setURL("https://discord.gg/pB3dyx4")
+           .setTimestamp()
+           .setColor('#000000')
+           message.channel.send({embed})
+       }
+   });
+
+
+
+
+
+
+
+
 
 
 client.login(process.env.BOT_TOKEN);
