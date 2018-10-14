@@ -38,7 +38,7 @@ client.on("message", (message) => {
 
 if (message.content.toLowerCase().startsWith(prefix + `بلاغ`)) {
     const reason = message.content.split(" ").slice(1).join(" ");
-    if (!message.guild.roles.exists("name", "Support")) return message.channel.send(`لا يوجد رتبه ب اسم `مساعدة ` الرجاء من صاحب السيرفر انشاء رتبه بهاذا الاسم`.`);
+    if (!message.guild.roles.exists("name", "Support")) return message.channel.send(`This server doesn't have a مساعدة role made, so the ticket won't be opened.`);
     if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`يوجد لديك بلفعل بلاغ.`);
     message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
         let role = message.guild.roles.find("name", "مساعدة");
